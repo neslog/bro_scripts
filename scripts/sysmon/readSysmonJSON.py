@@ -1,5 +1,11 @@
 #!/usr/bin/python
 # -*- coding: ascii -*-
+# Usage:
+#
+# cat sysmonJSON | python readSysmonJSON.py
+# JSON events will be read in and forwarded to Broker
+#
+
 
 import broker
 import broker.bro
