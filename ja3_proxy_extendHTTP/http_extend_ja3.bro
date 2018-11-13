@@ -1,10 +1,7 @@
-# Load TLS side script which tracks Orig_h & JA3
 #
 # This script will look at the X-FORWARDED-FOR header and lookup the IP in the HTTPS_Conns
 #   Note: X-FORWARDED-FOR may contain multipe IPs.  TODO: take length of  X-FORWARDED-FOR and take first IP of the chain as orig_h.
 #
-
-@load ./tls_origh.bro
 
 module HTTP;
 
