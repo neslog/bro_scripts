@@ -4,6 +4,8 @@
 #   Note: X-FORWARDED-FOR may contain multipe IPs.  TODO: take length of  X-FORWARDED-FOR and take first IP of the chain as orig_h.
 #
 
+@load ./tls_origh.bro
+
 module HTTP;
 
 redef record HTTP::Info += {
