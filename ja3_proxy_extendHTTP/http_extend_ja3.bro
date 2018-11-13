@@ -14,7 +14,7 @@ event http_header(c: connection, is_orig: bool, name: string, value: string) &pr
 if ( name == "X-FORWARDED-FOR" ) {
 # lookup conneciton in https_conns;
 if ( to_addr(value) in JA3::https_conns ) {
-  print JA3::https_conns[to_addr(value)];
+  #print JA3::https_conns[to_addr(value)];
   c$http$ja3 = JA3::https_conns[to_addr(value)];
   delete JA3::https_conns[to_addr(value)];
   }
