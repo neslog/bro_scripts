@@ -10,7 +10,9 @@ export {
 global https_conns: table[addr] of string &redef;
 }
 
-event ssl_client_hello(c: connection, version: count, possible_ts: time, client_random: string, session_id: string, ciphers: index_vec) &priority=-3
-{
+@if ( Version::at_least("2.6") || ( Version::number == 20500 && Version::info$commit >= 944 ) )
+event ssl_client_hello(c: connection, version: count, record_version: count, possible_ts: time, client_random: string, session_id: string, ciphers: index_vec, comp_methods: index_vec) &priority=1
+@else
+event ssl_client_hello(c: connection, version: count, possible_ts: time, client_random: string, session_id: string, ciphers: index_vec) &priority=1{
 https_conns[c$id$orig_h] = c$ssl$ja3;
 }
